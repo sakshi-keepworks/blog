@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def test_index
+  	get :index
+    assert_response :true
+  end
+ 
 end
