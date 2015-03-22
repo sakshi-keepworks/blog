@@ -21,7 +21,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "strong_parameters"
+gem 'strong_parameters'
+gem 'devise'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+
+  before_filter :authenticate_author!, except: [:index, :show]
   
   def index
     @articles = Article.all
