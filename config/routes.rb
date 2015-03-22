@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root :to => 'welcome#index'
+  root :to => 'articles#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

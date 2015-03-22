@@ -24,7 +24,8 @@ gem 'jquery-rails'
 gem 'strong_parameters'
 gem 'devise'
 gem 'kaminari'
-
+gem 'acts-as-taggable-on', '~> 2.3.1'
+gem "paperclip", "~> 4.2"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

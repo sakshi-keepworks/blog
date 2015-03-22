@@ -3,8 +3,8 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_author!, except: [:index, :show]
   
   def index
-    myarray = Article.all
-    @articles = Kaminari.paginate_array(myarray).page(params[:page]).per(10)
+    articles = Article.all
+    @articles = Kaminari.paginate_array(articles).page(params[:page]).per(10)
   end
 
   def show
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   private
   
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :cover_image,:tag_list => [])
   end
 
 end
