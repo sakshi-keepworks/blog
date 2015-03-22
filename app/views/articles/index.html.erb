@@ -1,7 +1,7 @@
 <h1>Articles</h1>
 <%= paginate @articles %>
 <% @articles.each do |article| %>  
-  <h2><%= link_to article.title, article %></h2>
+  <h4><%= link_to article.title, article %></h4>
   <p><%= article.text %></p>
   <p><b>Tags:</b> 
     <% article.tag_list.each do |tag| %>
