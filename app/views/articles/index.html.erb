@@ -3,7 +3,11 @@
 <% @articles.each do |article| %>  
   <h2><%= link_to article.title, article %></h2>
   <p><%= article.text %></p>
-  <p>Tags: <%= article.tag_list %></p>
+  <p><b>Tags:</b> 
+    <% article.tag_list.each do |tag| %>
+      <%= tag %>
+    <% end %>
+   </p>
   <% if author_signed_in? %> 
     <p><%= link_to 'Edit', edit_article_path(article) %>
     <%= link_to 'Destroy', article_path(article),
