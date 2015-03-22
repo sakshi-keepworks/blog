@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'strong_parameters'
 gem 'devise'
+gem 'kaminari'
 
 
 group :development, :test do
