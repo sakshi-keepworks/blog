@@ -9,7 +9,7 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   def test_create
-  	assert_difference ->{ Comment.count }, +1 do
+    assert_difference ->{ Comment.count }, +1 do
       post :create, :article_id => @article, :comment => { commenter: "sakshi@gmail.com", body: "Awesome" }
       assert_response :success
     end
