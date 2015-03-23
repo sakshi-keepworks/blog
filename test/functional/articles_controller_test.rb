@@ -9,7 +9,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
   def test_index
   	get :index
-    assert_response :true
+    assert_response :success
   end
 
   def test_create
@@ -20,7 +20,7 @@ class ArticlesControllerTest < ActionController::TestCase
     end
   end
 
-  def test_fail_create
+  def test_fail_create_without_title
   	sign_in authors(:sakshi)
     assert_no_difference ->{ Article.count } do
       post :create, text: "This is a rails app."
@@ -29,31 +29,31 @@ class ArticlesControllerTest < ActionController::TestCase
 
   def test_update
   	sign_in authors(:sakshi)
-  	put :update, id: @article, text: "Rails is awesome!"
+  	put :update, id: @article.id, text: "Rails is awesome!"
   	assert_response :success
   end
 
   def test_destroy
-	sign_in authors(:sakshi)
-	assert_difference(->{Article.count}, -1) do
-	  delete :destroy, id: @article
-	end
+	  sign_in authors(:sakshi)
+	  assert_difference(->{Article.count}, -1) do
+	    delete :destroy, id: @article.id
+	  end
   end
 
   def test_show
     get :show, id: @article
-    assert_redirected_to articles_url
+    assert_response :success
   end
 
   def test_edit
     sign_in authors(:sakshi)
-	get :edit, id: @article
+	  get :edit, id: @article
     assert_response :success
   end
 
   def test_new
     sign_in authors(:sakshi)
-	get :new
+	  get :new
     assert_response :success
   end
 
